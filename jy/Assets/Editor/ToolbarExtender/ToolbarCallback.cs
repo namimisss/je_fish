@@ -51,10 +51,11 @@ namespace UnityToolbarExtender
 					// Get it's visual tree
 					var visualTree = (VisualElement) m_viewVisualTree.GetValue(m_currentToolbar, null);
 #endif
-                    // Get first child which 'happens' to be toolbar IMGUIContainer
+                    // Get first child which 'happens' to be toolbar IMGUIContainer 
                     var container = (IMGUIContainer)visualTree[0];
 
-                    // (Re)attach handler
+                    // (Re)attach handler ToolBar-->GUIView-->visualTree-->IMGUIContainer-->m_OnGUIHandler
+                    // IMGUIContainer 每次刷新的时候调用到ToolbarCallback::OnGUI
                     var handler = (Action)m_imguiContainerOnGui.GetValue(container);
                     handler -= OnGUI;
                     handler += OnGUI;

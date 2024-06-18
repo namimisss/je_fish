@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEditor;
 using UnityEngine;
 
-namespace UnityToolbarExtender
+namespace UnityToolbarExtender.Examples
 {
     static class ToolbarStyles
     {
@@ -23,7 +22,6 @@ namespace UnityToolbarExtender
         }
     }
 
-
     [InitializeOnLoad]
     public class SceneSwitchLeftButton
     {
@@ -35,11 +33,11 @@ namespace UnityToolbarExtender
         static void OnToolbarGUI()
         {
             GUILayout.FlexibleSpace();
+
             if (GUILayout.Button(new GUIContent("P", "Start Play"), ToolbarStyles.commandButtonStyle))
             {
-                Debug.Log("click P");
+                SceneHelper.StartScene("Assets/Scenes/0_GameStart.unity");
             }
         }
     }
 }
-
