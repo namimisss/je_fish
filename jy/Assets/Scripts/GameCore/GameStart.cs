@@ -35,8 +35,7 @@ public class GameStart : MonoBehaviour
         });
 */
         Application.logMessageReceived += OnErrorMsg;
-
-//        ModPanelNew.SwitchSceneTo();
+        ModPanelNew.SwitchSceneTo();
     }
 
     private void OnErrorMsg(string condition, string stackTrace, LogType logType)
